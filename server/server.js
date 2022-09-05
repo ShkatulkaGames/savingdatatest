@@ -4,7 +4,7 @@ require('dotenv').config()
 
 // MongoDB Configurations 
 const mongoose = require('mongoose')
-mongoose.connect(process.env.URI, {useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(`mongodb+srv://Shkatulka:m1AtvAYNgFrcPbyn@cluster0.xqydcsg.mongodb.net/?retryWrites=true&w=majority`, {useNewUrlParser: true, useUnifiedTopology: true });
 
 var db = mongoose.connection;
 
