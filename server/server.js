@@ -64,6 +64,14 @@ app.post("/player-data/update-coins/:id", async (request, response) => {
   response.send("Updated Clan Coins.");
   // Just a response.
 });
+app.post("/player-data/update-clanOwner/:id", async (request, response) => {
+  await playerModel.findOneAndUpdate(
+    { userID: `${request.params.id}` },
+    { $set: { coins: request.body.id } }
+  );
+  response.send("Updated Clan Owner ID.");
+});
+
 
 const listener = app.listen(process.env.PORT, () => {
   console.log("Your app is listening on port " + listener.address().port);
