@@ -11,7 +11,8 @@ const schema = new Schema({
    coins: Number,
    clanName: String,
    clanOwner: Number,
-   clanMembers: Array
+   clanMembers: Array,
+   welcomeMes: String
 })
 // We use the new operator to create a new Schema and we define the fields,
 // For this one I am just going to use User Id and coins, you can add more.
