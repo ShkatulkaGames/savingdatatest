@@ -58,7 +58,7 @@ app.post("/player-data/update-coins/:id", async (request, response) => {
   // We use a mongoose method to find A record and update!
   await playerModel.findOneAndUpdate(
     { userID: `${request.params.id}` },
-    { $set: { coins: request.body.coins } }
+    { $inc: { coins: request.body.coins } }
     // We set the coins to the coins we received in the body of the request
   );
   response.send("Updated Clan Coins.");
