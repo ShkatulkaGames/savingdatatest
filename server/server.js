@@ -67,7 +67,7 @@ app.post("/player-data/update-coins/:id", async (request, response) => {
 app.post("/player-data/update-clanOwner/:id", async (request, response) => {
   await playerModel.findOneAndUpdate(
     { userID: `${request.params.id}` },
-    { $set: { coins: request.body.id } }
+    { $set: { clanOwner: request.body.id } }
   );
   response.send("Updated Clan Owner ID.");
 });
