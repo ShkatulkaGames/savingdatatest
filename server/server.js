@@ -64,10 +64,12 @@ app.post("/player-data/update-coins/:id", async (request, response) => {
   response.send("Updated Clan Coins.");
   // Just a response.
 });
-app.post("/player-data/update-clanOwner/:id", async (request, response) => {
+app.post("/player-data/create-clan/:id", async (request, response) => {
   await playerModel.findOneAndUpdate(
     { userID: `${request.params.id}` },
-    { $set: { clanOwner: request.body.id } }
+    { $set: { clanOwner: request.body.id } },
+    { $set: { welcomeMes: request.body.welcomeMes } },
+    { $set: { clanTag: request.body.clanTag } },
   );
   response.send("Updated Clan Owner ID.");
 });
