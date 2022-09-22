@@ -88,6 +88,22 @@ app.post("/player-data/destroy-clan/:id", async (request, response) => {
   )
   response.send("destroyed clan!");
 });
+app.post("/player-data/join-clan/:id", async (request, response) => {
+ await playerModel.findOneAndUpdate(
+    { userID: `${request.params.id}` },
+    { $push: {
+             clanMembers: request.body.id
+           } }
+  )
+  response.send("destroyed clan!");
+});
+app.post("/player-data/leave-clan/:id", async (request, response) => {
+ await playerModel.findOneAndUpdate(
+    { userID: `${request.params.id}` },
+   { $pull: { 'clanMembers': { id:  request.body.id} } }
+  )
+  response.send("destroyed clan!");
+});
 
 
 const listener = app.listen(process.env.PORT, () => {
