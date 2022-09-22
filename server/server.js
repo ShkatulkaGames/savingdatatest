@@ -68,11 +68,12 @@ app.post("/player-data/update-coins/:id", async (request, response) => {
 app.post("/player-data/create-clan/:id", async (request, response) => {
   await playerModel.findOneAndUpdate(
     { userID: `${request.params.id}` },
-    { $set: { clanOwner: request.body.id },
-     $set: { welcomeMes: request.body.welcomeMes } ,
-     $set: { clanTag: request.body.clanTag } ,
-     $set: { coins: 0 } }
-  );
+    { $set: { clanOwner: request.body.id,
+             welcomeMes: request.body.welcomeMes,
+             clanTag: request.body.clanTag,
+             coins: 0
+           } }
+  )
   response.send("Created New Clan.");
 });
 
