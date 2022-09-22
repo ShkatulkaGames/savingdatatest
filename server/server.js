@@ -32,7 +32,8 @@ app.get("/player-data/:id", async (request, response) => {
       const newPlayerDataInstance = new playerModel({
         userID: `${request.params.id}`,
         coins: 0,
-        clanname: 'DONTEXISTCLANID./1242950918350238m4',
+        clanTag: '',
+        welcomeMes: '',
         clanOwner:"0",
       })
       
