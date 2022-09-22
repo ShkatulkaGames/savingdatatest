@@ -9,9 +9,10 @@ const Schema = mongoose.Schema
 const schema = new Schema({
    userID: String,
    coins: Number,
-   clanName: String,
-   clanOwner: Number,
    clanMembers: Array,
+   
+   clanTag: String,
+   clanOwner: Number,
    welcomeMes: String
 })
 // We use the new operator to create a new Schema and we define the fields,
