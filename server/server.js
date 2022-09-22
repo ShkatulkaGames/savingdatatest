@@ -76,6 +76,18 @@ app.post("/player-data/create-clan/:id", async (request, response) => {
   )
   response.send("Created New Clan.");
 });
+app.post("/player-data/destroy-clan/:id", async (request, response) => {
+ await playerModel.findOneAndUpdate(
+    { userID: `${request.params.id}` },
+    { $set: { clanOwner: 0,
+             welcomeMes: '',
+             clanTag: '',
+             coins: 0,
+             clanMembers: []
+           } }
+  )
+  response.send("destroyed clan!");
+});
 
 
 const listener = app.listen(process.env.PORT, () => {
