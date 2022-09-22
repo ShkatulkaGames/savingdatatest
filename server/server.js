@@ -69,9 +69,10 @@ app.post("/player-data/create-clan/:id", async (request, response) => {
     { userID: `${request.params.id}` },
     { $set: { clanOwner: request.body.id } },
     { $set: { welcomeMes: request.body.welcomeMes } },
-    { $set: { clanTag: request.body.clanTag } }
+    { $set: { clanTag: request.body.clanTag } },
+    { $set: { coins: 0 } }
   );
-  response.send("Updated Clan Owner ID.");
+  response.send("Created New Clan.");
 });
 
 
